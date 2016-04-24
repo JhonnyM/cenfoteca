@@ -1,0 +1,45 @@
+<div class="container">
+    <h3 class="text-center">Tipos de Usuario</h3>
+    <hr>
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-8">
+    <div class='form-group'>
+        <div ng-class="{error: onError && createRentForm.name.$invalid}">
+            <label class='col-sm-12 control-label'>Descripci&#243n: </label>
+            <div class="col-sm-8">
+                <input type="text" id="name2" class="form-control"
+                       name="Last name" placeholder="Required" required
+                       ng-model="tipoAgregar.name"/><br>
+                       <button ng-show = "!isEditing" class="col-sm-3 btn btn-success" ng-click="insertarTipo()">Create</button>
+					<span
+                            ng-show="onError && createRentForm.name.$error.required"
+                            class="help-inline">Required
+					</span>
+			
+            </div>
+
+        </div>
+
+        <button ng-show = "isEditing" class="col-sm-3 btn btn-primary btn-xs" ng-click="acceptEdit()">Salvar</button>
+        <button ng-show = "isEditing" class="col-sm-3 btn btn-warning btn-xs" ng-click="cancelEdit()">Cancelar</button>
+    </div>
+    </div>
+    <div class="col-sm-offset-12">
+    </div>
+
+
+</div>
+
+<br>
+<div class="container">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <div ng-repeat="tipo in tipos track by tipo.idTipoUsuario "
+             item-switch item="tipo" item-index="$index" class="notice notice-{{classMap[item.type]}}">
+        </div>
+    </div>
+
+
+</div>
