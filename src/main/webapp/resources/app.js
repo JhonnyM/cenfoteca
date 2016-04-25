@@ -11,7 +11,8 @@ angular.module('myApp', [
 	'myApp.tipousuario.service',
 	'myApp.userform',
 	'myApp.tipoUsuario',
-	'myApp.items'
+	'myApp.items',
+	'ui.bootstrap',
 
 ])
 .config(['$routeProvider','$provide','$httpProvider', function($routeProvider,$provide,$httpProvider) {

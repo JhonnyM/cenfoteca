@@ -16,16 +16,21 @@ angular.module('myApp.view2', ['ngRoute'])
 	$scope.onError = false;
 	$scope.tipoAlquilerList = [];
 	$scope.requestObject = {};
+    $scope.allRents = [];
 	
     $scope.init = function() {
     	
     	$http.get('rest/protected/tipoAlquiler/getAll')
 		.success(function(response) {
-
 			$scope.tipoAlquilerList = response.tipoAlquilerList;
 			$scope.requestObject.idTipoAlquiler = $scope.tipoAlquilerList[0].idTipoAlquiler;
 			
 		});
+
+        $http.get('rest/protected/rent/getAll').success(function(response) {
+            $scope.allRents = response.alquilerList;
+            
+        });
     	
     };
     
@@ -65,5 +70,15 @@ angular.module('myApp.view2', ['ngRoute'])
     		$scope.onError = true;
     	}
     };
+
+
+    $scope.deleteAlquiler = function(item){
+    }
+
+    $scope.showAlquiler = function(item){
+    }
+
+    $scope.editAlquiler = function(item){
+    }
     
 }]);

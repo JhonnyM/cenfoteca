@@ -59,5 +59,16 @@ public class RentController {
 	
 		return rs;		
 	}
+
+	@RequestMapping(value ="/getAll", method = RequestMethod.GET)
+	public RentResponse getAll(){
+		
+		RentResponse rs = new RentResponse();
+		rs.setAlquilerList(rentService.getAll());	
+		return rs;
+	}
+
+
+
 	
 }

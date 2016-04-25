@@ -16,13 +16,44 @@
   <link rel="stylesheet" href="resources/bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/bower_components/angular-ui-grid/ui-grid.min.css">
-  <link rel="stylesheet" href="resources/app.css">
+  <link rel="stylesheet" href="resources/assets/bootstrap.css" media="screen">
+  <link rel="stylesheet" href="resources/assets/usebootstrap.css">
+
   <script src="resources/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="app#/view" class="navbar-brand">Cenfoteca</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          
+      <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="app#/view3" id="themes">Tipo de Usuario</a>
+            </li>
+            <li>
+              <a href="app#/view2">Alquileres</a>
+            </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://usebootstrap.com/" target="_blank">UCenfotec</a></li>
+            <li><a href="http://usebootstrap.com/" target="_blank">Github Repo</a></li>
+      </ul>
+      
+        </div>
+      </div>
+    </div>
 
   <div ng-view></div>
   <div class="container"><div>version <strong><span app-version></span></strong></div></div>
@@ -32,14 +63,15 @@
   <script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="resources/bower_components/angular/angular.js"></script>
+  <script src="resources/assets/ui-bootstrap-tpls-1.3.2.min.js"></script>
+  <script src="resources/assets/usebootstrap.js"></script>
   <script src="resources/bower_components/angular-route/angular-route.js"></script>
   <script src="resources/bower_components/angular-ui-grid/ui-grid.min.js"></script>
   <script src="resources/non_bower_components/angular-file-upload-shim.min.js"></script>
   <script src="resources/non_bower_components/angular-file-upload.min.js"></script>
+  <script src="resources/view2/view2.js"></script>
   <script src="resources/app.js"></script>
   <script src="resources/view1/view1.js"></script>
-  <script src="resources/view2/view2.js"></script>
-
   <script src="resources/mantenimientoTipoUsuario/tipo_usuario_service.js"></script>
   <script src="resources/mantenimientoTipoUsuario/tipo_usuario_controller.js"></script>
   <script src="resources/mantenimientoTipoUsuario/tipo_usuario.js"></script>
