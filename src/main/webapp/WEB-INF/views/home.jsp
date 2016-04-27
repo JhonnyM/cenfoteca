@@ -70,6 +70,7 @@
   <script src="resources/non_bower_components/angular-file-upload-shim.min.js"></script>
   <script src="resources/non_bower_components/angular-file-upload.min.js"></script>
   <script src="resources/view2/view2.js"></script>
+  <script src="resources/view2/Modal.js"></script>
   <script src="resources/app.js"></script>
   <script src="resources/view1/view1.js"></script>
   <script src="resources/mantenimientoTipoUsuario/tipo_usuario_service.js"></script>

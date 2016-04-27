@@ -13,6 +13,7 @@ angular.module('myApp', [
 	'myApp.tipoUsuario',
 	'myApp.items',
 	'ui.bootstrap',
+	'myApp.modal'
 
 ])
 .config(['$routeProvider','$provide','$httpProvider', function($routeProvider,$provide,$httpProvider) {
