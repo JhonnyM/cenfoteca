@@ -73,6 +73,24 @@ angular.module('myApp.view2', ['ngRoute'])
 
 
     $scope.deleteAlquiler = function(item){
+        console.log(item);
+        $http.post("rest/protected/rent/delete", {alquiler: item})
+        .then(function (response){
+
+          switch(response.data.code)
+          {
+            case 200:
+              alert("Alquiler Eliminado")
+            break;
+
+            default:
+              alert(response.data.codeMessage);
+          }
+
+        }, function (response){
+
+        });
+        $scope.init();
     }
 
     $scope.showAlquiler = function(item){

@@ -47,8 +47,8 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://usebootstrap.com/" target="_blank">UCenfotec</a></li>
-            <li><a href="http://usebootstrap.com/" target="_blank">Github Repo</a></li>
+            <li><a href="https://www.ucenfotec.ac.cr/" target="_blank">UCenfotec</a></li>
+            <li><a href="https://github.com/JhonnyM/cenfoteca" target="_blank">Github Repo</a></li>
       </ul>
       
         </div>

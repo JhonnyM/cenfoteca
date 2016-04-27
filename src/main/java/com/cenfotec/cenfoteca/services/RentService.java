@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.cenfotec.cenfoteca.ejb.Alquiler;
 import com.cenfotec.cenfoteca.pojo.AlquilerPOJO;
 import com.cenfotec.cenfoteca.repositories.RentRepository;
+import com.cenfotec.cenfoteca.contracts.RentRequest;
 
 @Service
 public class RentService implements RentServiceInterface{
@@ -35,5 +36,16 @@ public class RentService implements RentServiceInterface{
 			dtos.add(dto);
 		});
 		return dtos;
+	}
+
+
+	@Override
+	public boolean delete(RentRequest r) {
+		
+		int id = r.getAlquiler().getIdAlquiler();
+		boolean exists = rentRepository.exists(id);
+		if(exists)
+			rentRepository.delete(r.getAlquiler().getIdAlquiler());
+		return exists;
 	}
 }

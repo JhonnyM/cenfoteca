@@ -3,6 +3,7 @@ package com.cenfotec.cenfoteca.controllers;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import com.cenfotec.cenfoteca.ejb.Alquiler;
 import com.cenfotec.cenfoteca.services.RentServiceInterface;
 import com.cenfotec.cenfoteca.services.TipoAlquilerServiceInterface;
 import com.cenfotec.cenfoteca.utils.Utils;
+import com.cenfotec.cenfoteca.contracts.RentRequest;
 
 
 /**
@@ -66,6 +68,17 @@ public class RentController {
 		RentResponse rs = new RentResponse();
 		rs.setAlquilerList(rentService.getAll());	
 		return rs;
+	}
+
+	@RequestMapping(value ="/delete", method = RequestMethod.POST)
+	public RentResponse delete(@RequestBody RentRequest ur){	
+			
+		RentResponse ut = new RentResponse();
+		if(rentService.delete(ur)) {
+			ut.setCode(200);
+			ut.setCodeMessage("Alquiler borrado");
+		}
+		return ut;		
 	}
 
 

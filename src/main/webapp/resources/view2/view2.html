@@ -93,7 +93,7 @@
             <tr ng-repeat="item in allRents track by item.idAlquiler ">
               <td>{{item.name}}</td>
               <td style="width: 800px;">{{item.description}}</td>
-              <td><button type="button" class="btn btn-success btn-xs" ng-click="editTipo(tipo)">Editar</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger btn-xs" ng-click="deleteTipo(tipo)">Eliminar</button></td>
+              <td><button type="button" class="btn btn-success btn-xs" ng-click="editAlquiler(item)">Editar</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger btn-xs" ng-click="deleteAlquiler(item)">Eliminar</button></td>
             </tr>
           </tbody>
         </table> 
