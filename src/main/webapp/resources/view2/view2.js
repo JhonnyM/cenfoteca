@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute', 'ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
@@ -9,32 +9,45 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['$scope', '$http','$location','$upload',function($scope, $http,$location,$upload) {
+.controller('View2Ctrl', ['$scope', '$http','$location','$upload','$uibModal',function($scope, $http,$location,$upload,$uibModal) {
 	
 	$scope.rent={};
 	$scope.files = {};
 	$scope.onError = false;
 	$scope.tipoAlquilerList = [];
 	$scope.requestObject = {};
-    $scope.allRents = [];
+  $scope.allRents = [];
 	
     $scope.init = function() {
     	
-    	$http.get('rest/protected/tipoAlquiler/getAll')
+    $http.get('rest/protected/tipoAlquiler/getAll')
 		.success(function(response) {
 			$scope.tipoAlquilerList = response.tipoAlquilerList;
 			$scope.requestObject.idTipoAlquiler = $scope.tipoAlquilerList[0].idTipoAlquiler;
 			
 		});
 
-        $http.get('rest/protected/rent/getAll').success(function(response) {
-            $scope.allRents = response.alquilerList;
-            
-        });
+    $http.get('rest/protected/rent/getAll').success(function(response) {
+      $scope.allRents = response.alquilerList;  
+    });
     	
     };
     
     $scope.init();
+
+    $scope.openModalEdit = function(item) {
+        var modalInstance = $uibModal.open({
+          backdrop:'static',
+          keyboard:false,
+          templateUrl: 'resources/view2/myModalContent.html',
+          controller: 'ModalInstanceCtrl',
+          size: "lg",
+          windowClass:"modal",
+          resolve: {
+            item:function(){return item}
+          }
+        });
+    };
     
     $scope.onFileSelect = function($files) {
     	$scope.files = $files;
@@ -93,10 +106,9 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.init();
     }
 
-    $scope.showAlquiler = function(item){
-    }
-
     $scope.editAlquiler = function(item){
+        scope.openModalEdit(item);
+
     }
     
 }]);

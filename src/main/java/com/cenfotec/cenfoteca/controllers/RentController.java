@@ -82,6 +82,60 @@ public class RentController {
 	}
 
 
+	// @RequestMapping(value = "/save", method = RequestMethod.POST)
+	// public RentResponse save(@RequestBody RentRequest request) {
+	
+	// 	RentResponse response = new RentResponse();
+	// 	boolean saved = rentService.save(request);
+		
+	// 	if(saved){
+	// 		response.setCode(200);
+	// 		response.setCodeMessage("El evento ha sido guardado exitosamente");
+	// 	}
+	// 	else
+	// 	{
+	// 		response.setCode(404);
+	// 		response.setCodeMessage("Hubo un error al momento de guardar el evento");
+	// 	}
+	// 	return response;
+	// }
+
+
+	@RequestMapping(value ="/save", method = RequestMethod.POST)
+	public RentResponse save(
+			@RequestParam("idAlquiler") int idAlquiler,
+			@RequestParam("file") MultipartFile file,
+			@RequestParam("idTipoAlquiler") int idTipoAlquiler,
+			@RequestParam("name") String name,
+			@RequestParam("description") String description){	
+		
+		RentResponse rs = new RentResponse();
+		String resultFileName = Utils.writeToFile(file,servletContext);
+		if(!resultFileName.equals("")){
+			
+			Alquiler alquiler = rentService.findByIdAlquiler(idAlquiler);
+			alquiler.setName(name);
+			alquiler.setDescription(description);
+			alquiler.setImage(resultFileName);
+			alquiler.setTipoAlquiler(tipoAlquilerService.getTipoAlquilerById(idTipoAlquiler));
+			
+			Boolean state = rentService.saveRent(alquiler);
+			
+			if(state){
+				rs.setCode(200);
+				rs.setCodeMessage("rent created succesfully");
+			}
+			
+		}else{
+			//create a common webservice error codes enum or statics
+			rs.setCode(409);
+			rs.setErrorMessage("create/edit conflict");
+		}
+	
+		return rs;		
+	}
+
+
 
 	
 }

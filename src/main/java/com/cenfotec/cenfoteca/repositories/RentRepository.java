@@ -10,4 +10,5 @@ import com.cenfotec.cenfoteca.ejb.TipoUsuario;
 
 public interface RentRepository extends CrudRepository<Alquiler,Integer> {
 	List<Alquiler> findAll();
+	Alquiler findByIdAlquiler(int id);
 }

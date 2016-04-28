@@ -48,4 +48,17 @@ public class RentService implements RentServiceInterface{
 			rentRepository.delete(r.getAlquiler().getIdAlquiler());
 		return exists;
 	}
+
+	@Override
+	public Boolean save (Alquiler alquiler){
+		Alquiler s = rentRepository.save(alquiler);
+		return !(s == null);
+		
+	}
+	
+	public Alquiler findByIdAlquiler(Integer id){
+		Alquiler alquiler = rentRepository.findOne(id);
+		return alquiler;
+		
+	}
 }

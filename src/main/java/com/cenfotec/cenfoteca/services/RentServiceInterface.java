@@ -13,4 +13,6 @@ public interface RentServiceInterface {
 	Boolean saveRent(Alquiler alquiler);
 	public List<AlquilerPOJO> getAll();
 	boolean delete(RentRequest r);
+	Boolean save (Alquiler alquiler);
+	public Alquiler findByIdAlquiler (Integer id);
 }
