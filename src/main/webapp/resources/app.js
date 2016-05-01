@@ -13,11 +13,13 @@ angular.module('myApp', [
 	'myApp.tipoUsuario',
 	'myApp.items',
 	'ui.bootstrap',
-	'myApp.modal'
+	'myApp.modal',
+	'myApp.rentar',
+	'myApp.rentarModal'
 
 ])
 .config(['$routeProvider','$provide','$httpProvider', function($routeProvider,$provide,$httpProvider) {
-	$routeProvider.otherwise({redirectTo: '/view1'});
+	$routeProvider.otherwise({redirectTo: '/rentar'});
 
 	$provide.factory('responseHttpInterceptor', function($q) {
 		  return {

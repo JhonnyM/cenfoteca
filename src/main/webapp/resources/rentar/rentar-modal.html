@@ -1,0 +1,21 @@
+<div>
+  <div class="modal-header">
+    <h3 class="modal-title">Rentar</h3>
+  </div>
+  <div class="modal-body">
+    <div class="well bs-component">
+      <form id="RentForm" name="RentForm" class="form-horizontal" role="form">        
+          <div class="form-group">
+            <label for="repeatSelect2">Item: </label>
+            <select id="repeatSelect2" class="form-control" ng-model="itemTorent" required>
+              <option ng-repeat="item in allRents" value="{{item.idAlquiler}}">{{item.name}}</option>
+            </select>
+          </div>
+        </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-success" ng-click="save($event)">Save</button>
+      <button class="btn btn-warning" ng-click="$close()">Cancel</button>
+  </div>
+</div>

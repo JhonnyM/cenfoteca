@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="col-lg-12">
+        <h3>Opciones para Alquilar</h3>
+        <hr>
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in usuarios track by user.idUsuario ">
+              <td>{{user.firstname}}  {{user.lastname}}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-xs" ng-click="rentar(user)">Rentar</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-success btn-xs" ng-click="ver(user)">Ver Alquileres</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+        <table class="table table-striped table-hover " ng-show="verTabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Items Alquilados</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="rent in userRents track by user.idUsuario ">
+              <td>{{rent.firstname}}</td>
+              <td >
+                <span ng-repeat="alquiler in rent.alquileres ">{{alquiler.name}}<br /></span>
+              </td>
+              <td >
+                <button ng-show="alquiler.name" type="button" class="btn btn-info btn-xs" ng-click="devolver(userRents, user)">Devolver</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+</div>

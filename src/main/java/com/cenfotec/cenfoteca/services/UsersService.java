@@ -1,5 +1,6 @@
 package com.cenfotec.cenfoteca.services;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,10 +38,10 @@ public class UsersService implements UsersServiceInterface{
 	}
 	
 	private List<UsuarioPOJO> generateUserDtos(List<Usuario> users){
-		return users.stream()
-		      .map(u -> Utils.copyProperties(u, UsuarioPOJO::new))
-		      .peek(dto -> dto.setPassword(""))
-		      .collect(Collectors.toList());
+            return users.stream()
+                     .map(u -> Utils.copyProperties(u, UsuarioPOJO::new))
+                     .peek(dto -> dto.setPassword(""))
+                     .collect(Collectors.toList());
 	}
 
 	@Override

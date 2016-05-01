@@ -53,7 +53,7 @@ angular.module('myApp.modal', ['ngRoute','ui.bootstrap'])
 				function(evt) {
 					console.log('percent: '+ parseInt(100.0 * evt.loaded / evt.total));
 				}).success(function(data, status, headers, config) {
-					// Rent is uploaded successfully
+					$uibModalInstance.close();
 					console.log(data);
 				});
     			//.error(...)

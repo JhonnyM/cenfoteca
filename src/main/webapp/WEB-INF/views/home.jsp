@@ -44,6 +44,9 @@
             <li>
               <a href="app#/view2">Alquileres</a>
             </li>
+            <li>
+              <a href="app#/rentar">Rentar</a>
+            </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -70,6 +73,8 @@
   <script src="resources/non_bower_components/angular-file-upload-shim.min.js"></script>
   <script src="resources/non_bower_components/angular-file-upload.min.js"></script>
   <script src="resources/view2/view2.js"></script>
+  <script src="resources/rentar/rentar.js"></script>
+  <script src="resources/rentar/rentarModal.js"></script>
   <script src="resources/view2/Modal.js"></script>
   <script src="resources/app.js"></script>
   <script src="resources/view1/view1.js"></script>
