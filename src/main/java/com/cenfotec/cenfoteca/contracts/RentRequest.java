@@ -1,29 +1,25 @@
 package com.cenfotec.cenfoteca.contracts;
+import com.cenfotec.cenfoteca.pojo.AlquilerPOJO;
 
-public class RentRequest {
+public class RentRequest extends BaseRequest {
 	
-	private String name;
-	private String descripcion;
+	private AlquilerPOJO alquiler;
 	
-	public RentRequest(String name) {
+	public RentRequest() {
 		super();
-		this.name = name;
+	}
+	
+	public AlquilerPOJO getAlquiler() {
+		return alquiler;
+	}
+	
+	public void setAlquiler(AlquilerPOJO alquiler) {
+		this.alquiler = alquiler;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	@Override
+	public String toString() {
+		return "RentRequest [alquiler=" + alquiler + "]";
 	}
 	
 }
